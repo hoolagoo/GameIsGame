@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameIsGame — Play the Moment</title>
+<meta name="description" content="GameIsGame — a playful microbrand celebrating gameplay, flow, and fun.">
+<style>
+:root{
+  --bg: #0f1724;
+  --card: #0b1220;
+  --accent: #7cf2c7;
+  --muted: #9aa6b2;
+  --glass: rgba(255,255,255,0.04);
+  --radius: 12px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%;background: radial-gradient(1200px 600px at 10% 10%, rgba(124,242,199,0.06), transparent), linear-gradient(180deg,#071021 0%, #071024 60%);color:#e6eef6;line-height:1.45;}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;position:sticky;top:0;background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);backdrop-filter: blur(6px);z-index:10;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo .mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent), #3bd5ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:#032019;}
+.logo .word{font-weight:600;letter-spacing:0.6px;}
+.nav a{color:var(--muted);text-decoration:none;margin-left:14px;}
+.nav a:hover{color:var(--accent);}
+.hero{padding:60px 28px;text-align:center;}
+.hero h1{font-size:48px;margin:6px 0;}
+.lead{color:var(--muted);max-width:720px;margin:12px auto 18px;}
+.cta-row{display:flex;gap:12px;justify-content:center;margin-top:14px;}
+.btn{padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:10px;}
+.btn.primary{background:linear-gradient(90deg,var(--accent), #3bd5ff);color:#052019;}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);}
+.pixel-art{display:flex;justify-content:center;margin-top:28px;}
+.pixel-row{display:flex;gap:6px;}
+.pixel{width:12px;height:12px;border-radius:2px;background:linear-gradient(180deg,#fff,#d8f9ee);opacity:0.85;animation: bounce 1.2s infinite ease-in-out;}
+.pixel:nth-child(2){animation-delay:0.08s;}
+.pixel:nth-child(3){animation-delay:0.16s;}
+@keyframes bounce{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+section{max-width:980px;margin:28px auto;padding:18px;border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);}
+.features .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;list-style:none;padding:0;}
+.features li{background:var(--glass);padding:12px;border-radius:10px;}
+.features strong{display:block;font-size:16px;}
+.muted{color:var(--muted);}
+.email form{display:flex;gap:8px;max-width:580px;margin-top:12px;}
+.email input[type="email"]{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;}
+.email button{white-space:nowrap;}
+.site-footer{text-align:center;margin-top:36px;color:var(--muted);}
+@media (max-width:720px){.hero h1{font-size:34px}.nav{display:none}.site-header{padding:12px 16px}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="logo">
+    <div class="mark">GIG</div>
+    <div class="word">GameIsGame</div>
+  </div>
+  <nav class="nav">
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <h1>GameIsGame</h1>
+  <p class="lead">Play the moment. Embrace the rules. Love the game.</p>
+  <div class="cta-row">
+    <a class="btn primary" href="#features">Explore</a>
+    <a class="btn ghost" href="#contact">Join the Crew</a>
+  </div>
+  <div class="pixel-art" aria-hidden="true">
+    <div class="pixel-row">
+      <div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <h2>About</h2>
+  <p>GameIsGame is a micro-site celebrating play, whether it's a competitive match, a cozy co-op, or a small daily ritual.
+     This landing page is ready to customize — add your own copy, links to social channels, or embed gameplay clips.</p>
+</section>
+
+<section class="features" id="features">
+  <h2>Features</h2>
+  <ul class="grid">
+    <li><strong>Minimal</strong><span>Fast, responsive, and focused on the message.</span></li>
+    <li><strong>Brandable</strong><span>Replace colors, fonts, and logo to make it yours.</span></li>
+    <li><strong>Ready to Deploy</strong><span>Works on GitHub Pages, Netlify, Vercel, or any static host.</span></li>
+  </ul>
+</section>
+
+<section class="email" id="contact">
+  <h2>Join newsletter</h2>
+  <p>Leave your email and we'll send occasional updates (demo only — no server included).</p>
+  <form id="signup" onsubmit="return signup(event);">
+    <input type="email" id="email" placeholder="you@provider.com" required>
+    <button class="btn primary" type="submit">Sign up</button>
+  </form>
+  <p class="muted" id="signup-msg" aria-live="polite"></p>
+</section>
+</main>
+
+<footer class="site-footer">
+  <small>© <span id="year"></span> GameIsGame · Built with ♥</small>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+function signup(e){
+  e.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  const msg = document.getElementById('signup-msg');
+  if(!email.includes('@') || email.length < 6){
+    msg.textContent = 'Please enter a valid email.';
+    msg.style.color = '#ffb4b4';
+    return false;
+  }
+  msg.textContent = 'Thanks! (demo) — no backend connected.';
+  msg.style.color = '';
+  e.target.reset();
+  return false;
+}
+</script>
+</body>
+</html>
